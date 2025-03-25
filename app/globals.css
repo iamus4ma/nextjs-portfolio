@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode - Coffee theme */
+    --background: 30 30% 96%; /* Light cream */
+    --foreground: 24 10% 10%; /* Dark coffee */
+    --card: 30 30% 94%; /* Slightly darker cream */
+    --card-foreground: 24 10% 10%;
+    --popover: 30 30% 94%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 24 30% 25%; /* Medium coffee brown */
+    --primary-foreground: 30 30% 96%;
+    --secondary: 30 20% 85%; /* Light latte */
+    --secondary-foreground: 24 10% 10%;
+    --muted: 30 20% 85%;
+    --muted-foreground: 24 10% 40%;
+    --accent: 24 20% 30%; /* Darker coffee */
+    --accent-foreground: 30 30% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 30 30% 96%;
+    --border: 30 20% 80%; /* Light coffee border */
+    --input: 30 20% 85%;
+    --ring: 24 30% 25%; /* Matching primary */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode - Espresso theme */
+    --background: 24 10% 10%; /* Dark coffee */
+    --foreground: 30 30% 96%; /* Cream */
+    --card: 24 15% 8%; /* Darker coffee */
+    --card-foreground: 30 30% 96%;
+    --popover: 24 15% 8%;
+    --popover-foreground: 30 30% 96%;
+    --primary: 30 20% 85%; /* Latte color */
+    --primary-foreground: 24 10% 10%;
+    --secondary: 24 15% 15%; /* Dark coffee */
+    --secondary-foreground: 30 30% 96%;
+    --muted: 24 15% 15%;
+    --muted-foreground: 30 30% 70%;
+    --accent: 30 15% 80%; /* Light latte */
+    --accent-foreground: 24 10% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 30 30% 96%;
+    --border: 24 15% 20%; /* Coffee border */
+    --input: 24 15% 15%;
+    --ring: 30 20% 85%; /* Matching primary */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    background-image: radial-gradient(circle, hsl(var(--background)/0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  .coffee-ring {
+    @apply before:absolute before:-inset-2 before:rounded-full before:border-2 before:border-coffee-300/30 before:content-[''] dark:before:border-coffee-600/30;
+  }
+}
